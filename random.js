@@ -1,5 +1,7 @@
 module.exports = random;
 
+var GLMAT_RANDOM = require('./common').GLMAT_RANDOM();
+
 /**
  * Generates a random vector with the given scale
  *
@@ -10,8 +12,8 @@ module.exports = random;
 function random(out, scale) {
     scale = scale || 1.0
 
-    var r = Math.random() * 2.0 * Math.PI
-    var z = (Math.random() * 2.0) - 1.0
+    var r = GLMAT_RANDOM() * 2.0 * Math.PI
+    var z = (GLMAT_RANDOM() * 2.0) - 1.0
     var zScale = Math.sqrt(1.0-z*z) * scale
 
     out[0] = Math.cos(r) * zScale
